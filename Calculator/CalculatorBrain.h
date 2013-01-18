@@ -12,6 +12,11 @@
 
 - (void)pushOperand:(double)operand;
 - (double)performOperation:(NSString *)operation;
-- (void)resetBrain;
+- (void)resetBrain; // move to controller
+
+@property (readonly) id program;
+
++ (double)runProgram:(id)program;
++ (NSString *)descriptionOfProgram:(id)program;
 
 @end
