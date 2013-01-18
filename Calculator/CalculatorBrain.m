@@ -9,36 +9,30 @@
 #import "CalculatorBrain.h"
 
 @interface CalculatorBrain()
-@property (nonatomic, strong) NSMutableArray *operandStack;
+@property (nonatomic, strong) NSMutableArray *programStack;
 @end
 
 @implementation CalculatorBrain
 
-@synthesize operandStack = _operandStack;
+@synthesize programStack = _programStack;
 
-- (NSMutableArray *)operandStack
+- (NSMutableArray *)programStack
 {
-    if (_operandStack == nil) _operandStack = [[NSMutableArray alloc] init];
-    return _operandStack;
+    if (_programStack == nil) _programStack = [[NSMutableArray alloc] init];
+    return _programStack;
 }
 
 - (void)pushOperand:(double)operand
 {
-    [self.operandStack addObject:[NSNumber numberWithDouble:operand]];
-}
-
-- (double)popOperand
-{
-    NSNumber *operandObject = [self.operandStack lastObject];
-    if (operandObject) [self.operandStack removeLastObject];
-    return [operandObject doubleValue];
+    [self.programStack addObject:[NSNumber numberWithDouble:operand]];
 }
 
 - (double)performOperation:(NSString *)operation
 {
-    double result = 0;
-    
-    // calculate result
+    [self.programStack addObject:operation];
+    return [CalculatorBrain runProgram:self.program];
+}
+/*
     if ([operation isEqualToString:@"+"]) {
         result = [self popOperand] + [self popOperand];
     } else if ([@"*" isEqualToString:operation]) {
@@ -60,15 +54,11 @@
     } else if ([operation isEqualToString:@"+ / -"]) {
         result = -[self popOperand];
     }
-    
-    [self pushOperand:result];
-    
-    return result;
-}
+*/
 
 - (void)resetBrain
 {
-    [self.operandStack removeAllObjects];
+    [self.programStack removeAllObjects];
 }
 
 @end
