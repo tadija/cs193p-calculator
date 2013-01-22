@@ -22,6 +22,11 @@
     return _programStack;
 }
 
+- (id)program
+{
+    return [self.programStack copy];
+}
+
 - (void)pushOperand:(double)operand
 {
     [self.programStack addObject:[NSNumber numberWithDouble:operand]];
@@ -32,6 +37,25 @@
     [self.programStack addObject:operation];
     return [CalculatorBrain runProgram:self.program];
 }
+
++ (NSString *)descriptionOfProgram:(id)program
+{
+    return @"Implement this in assignment #2";
+}
+
++ (double)popOperandOffStack:(NSMutableArray *)stack
+{
+    double result = 0;
+    // pop operand off the stack
+    // if operation, need to recursively evaluate
+    return result;
+}
+
++ (double)runProgram:(id)program
+{
+    return [self popOperandOffStack:[program mutableCopy]];
+}
+
 /*
     if ([operation isEqualToString:@"+"]) {
         result = [self popOperand] + [self popOperand];
