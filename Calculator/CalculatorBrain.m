@@ -46,13 +46,18 @@
 + (double)popOperandOffStack:(NSMutableArray *)stack
 {
     double result = 0;
-    // pop operand off the stack
-    // if operation, need to recursively evaluate
+
+    
+    
     return result;
 }
 
 + (double)runProgram:(id)program
 {
+    NSMutableArray *stack;
+    if ([program isKindOfClass:[NSArray class]]) {
+        stack = [program mutableCopy];
+    }
     return [self popOperandOffStack:[program mutableCopy]];
 }
 
