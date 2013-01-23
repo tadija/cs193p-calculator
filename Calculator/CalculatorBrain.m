@@ -41,7 +41,7 @@
 + (NSString *)descriptionOfProgram:(id)program
 {
     // git testing #3
-    return @"Implement this in assignment #2";
+    return @"Implement this in assignment #2 - git testing assignment2 branch";
 }
 
 + (double)popOperandOffStack:(NSMutableArray *)stack
