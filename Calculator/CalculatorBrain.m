@@ -40,7 +40,7 @@
 
 + (NSString *)descriptionOfProgram:(id)program
 {
-    // git testing
+    // git testing #3
     return @"Implement this in assignment #2";
 }
 
