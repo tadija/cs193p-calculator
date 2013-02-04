@@ -10,15 +10,15 @@
 #import "CalculatorBrain.h"
 
 @interface CalculatorViewController()
-@property (nonatomic) BOOL userIsInTheMiddleOfEntereingANumber;
-@property (nonatomic, strong) CalculatorBrain *brain;
-- (void)logHistory:(NSString *)lastInput;
+    @property (nonatomic) BOOL userIsInTheMiddleOfEntereingANumber;
+    @property (nonatomic, strong) CalculatorBrain *brain;
+    - (void)logHistory:(NSString *)lastInput;
 @end
 
 @implementation CalculatorViewController
 
 @synthesize display = _display;
-@synthesize history = _history;
+@synthesize description = _description;
 @synthesize userIsInTheMiddleOfEntereingANumber = _userIsInTheMiddleOfEntereingANumber;
 @synthesize brain = _brain;
 
@@ -75,26 +75,26 @@
 }
 
 - (void)logHistory:(NSString *)lastInput {
-    self.history.text = [self.history.text stringByReplacingOccurrencesOfString:@" =" withString:@""];
-    self.history.text = [self.history.text stringByAppendingString:lastInput];
+    self.description.text = [self.description.text stringByReplacingOccurrencesOfString:@" =" withString:@""];
+    self.description.text = [self.description.text stringByAppendingString:lastInput];
 }   
 
 - (IBAction)resetPressed
 {
     [self.brain resetBrain];
     self.display.text = @"0";
-    self.history.text = @"";
+    self.description.text = @"";
     self.userIsInTheMiddleOfEntereingANumber = NO;
 }
 
 - (IBAction)deletePressed {
     if ( [self.display.text length] > 1) {
         self.display.text = [self.display.text substringToIndex:[self.display.text length] - 1];
-        self.history.text = [self.history.text substringToIndex:[self.history.text length] - 1];
+        self.description.text = [self.description.text substringToIndex:[self.description.text length] - 1];
     }
     else {
         self.display.text = @"0";
-        self.history.text = @"";
+        self.description.text = @"";
         self.userIsInTheMiddleOfEntereingANumber = NO;
     }
 }

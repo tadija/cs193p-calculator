@@ -9,7 +9,7 @@
 #import "CalculatorBrain.h"
 
 @interface CalculatorBrain()
-@property (nonatomic, strong) NSMutableArray *programStack;
+    @property (nonatomic, strong) NSMutableArray *programStack;
 @end
 
 @implementation CalculatorBrain
@@ -40,7 +40,6 @@
 
 + (NSString *)descriptionOfProgram:(id)program
 {
-    // git testing #3
     return @"Implement this in assignment #2 - git testing assignment2 branch";
 }
 
@@ -87,7 +86,7 @@
     if ([program isKindOfClass:[NSArray class]]) {
         stack = [program mutableCopy];
     }
-    return [self popOperandOffStack:[program mutableCopy]];
+    return [self popOperandOffStack:stack];
 }
 
 - (void)resetBrain

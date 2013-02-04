@@ -12,11 +12,13 @@
 
 - (void)pushOperand:(double)operand;
 - (double)performOperation:(NSString *)operation;
-- (void)resetBrain; // move to controller
+- (void)resetBrain;
 
 @property (readonly) id program;
 
 + (double)runProgram:(id)program;
+//+ (double)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues;
+//+ (NSSet *)variablesUsedInProgram:(id)program;
 + (NSString *)descriptionOfProgram:(id)program;
 
 @end
